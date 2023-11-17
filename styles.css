@@ -1,0 +1,13 @@
+body {
+    background-color: rgb(45, 45, 61);
+    color: #dddddf;
+}
+
+.app-container{
+    border: 3px solid rgb(255,255,255);
+    border-radius: 3px;
+}
+
+main h1 {
+    padding-left: 20px;
+}
