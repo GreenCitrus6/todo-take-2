@@ -11,3 +11,15 @@ body {
 main h1 {
     padding-left: 20px;
 }
+
+.add-container {
+    padding-left: 2em;
+}
+
+div > ul {
+    list-style: none;
+}
+
+main > div > a {
+    color: red;
+}
