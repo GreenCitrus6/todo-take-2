@@ -14,10 +14,19 @@ main h1 {
 
 .add-container {
     padding-left: 2em;
+    padding-bottom: .5em;
 }
 
 div > ul {
     list-style: none;
 }
 
- 
+li {
+    display: flex;
+    justify-content: space-between;
+}
+
+li > svg {
+    margin-right: 1em;
+    color: rgb(165, 52, 67);
+}
