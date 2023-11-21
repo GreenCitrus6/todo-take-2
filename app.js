@@ -9,6 +9,7 @@ document.getElementById('add-btn').addEventListener('click', () => {
 let taskField = document.getElementById('task-input');
 let tasks = [];
 
+initialLoad();
 //ensure that enter in task-input does not result in default behavior, but is the same as pressing add-btn
 taskField.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
@@ -24,6 +25,12 @@ function addTask(){
 
     taskField.value = "";
 } 
+//make sure any locally stored tasks are loaded on refresh
+function initialLoad() {
+    if (!localStorage.getItem('storedTasks')) { return }
+        tasks = JSON.parse(localStorage.getItem('storedTasks')).tasks;
+    refreshList();
+}
 //refresh the inner html of the list
 function refreshList() {
     let taskHTML = "";
@@ -38,6 +45,8 @@ function refreshList() {
     });
     
     document.getElementById('task-list').innerHTML = taskHTML; 
+    //save added tasks to local storage
+    localStorage.setItem('storedTasks', JSON.stringify({ tasks }));
     console.log(tasks);
 }
 //take task to be removed, copy every other task to a new array, then overwrite the old one. refresh the inner html of the list at the end 
@@ -52,5 +61,4 @@ function taskRemove(taskIndex) {
     }
     tasks = updatedTasks;
     refreshList();
-    return removedTask;
 }
